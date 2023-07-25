@@ -50,7 +50,7 @@ img{
     outline: none;
 }
 .inputToFrom{
-    width: 100%;
+    width: 320px;
     display: flex;
     align-items: center;
     justify-content: space-between;

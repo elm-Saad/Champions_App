@@ -49,17 +49,22 @@ onValue(listOfMessagesDb, function(snapshot){
         }
     }
     else {
-        displayField.innerHTML = "No items here... yet ¯\_(ツ)_/¯ "
+        displayField.innerHTML = "No items here... yet ¯\_(ツ)_/¯ ";
     }
 })
 function displayItemsIntoDisplayField(result){
 
     let ItemID = result[0];
-    let ItemValue = result[1];
+    let ItemValueTo = result[1].to;
+    let ItemValueFrom = result[1].from;
+    let ItemValueMain = result[1].mainMessage;
 
+    let finalMessage = `To: ${<li>ItemValueTo</li>} , ${<br></br>}
+                        ${ItemValueMain} 
+                       from: ${ItemValueFrom}`;
     let newEl = document.createElement("li");
 
-    newEl.textContent = ItemValue;
+    newEl.textContent = finalMessage;
 
     displayField.append(newEl);
 }
