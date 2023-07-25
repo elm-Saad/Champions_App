@@ -12,8 +12,8 @@ const listOfMessagesDb = ref(Db, "messagesList")
 
 
 const textInputEl = document.getElementById('input-text-field');
-const toUser = document.getElementById('input-text-field');
-const fromUser = document.getElementById('input-text-field');
+//const toUser = document.getElementById('input-text-field');
+//const fromUser = document.getElementById('input-text-field');
 const publishBtn = document.getElementById('publish-btn');
 const displayField = document.getElementById('display-inputs');
 
@@ -21,14 +21,14 @@ const displayField = document.getElementById('display-inputs');
 // push into the DB 
 publishBtn.addEventListener('click', function(){
     let userInputValue = textInputEl.value;
-    let toUserValue = toUser.value;
-    let fromUserValue = fromUser.value;
+    //let toUserValue = toUser.value;
+    //let fromUserValue = fromUser.value;
 
-    if(userInputValue && toUserValue && fromUserValue) {
-        let GlobaleMessage = `${toUserValue} , 
-                                ${userInputValue} 
-                            ${fromUserValue} `;
-        push(listOfMessagesDb,GlobaleMessage);
+    if(userInputValue /*&& toUserValue && fromUserValue*/) {
+        //let GlobaleMessage = `${toUserValue} , 
+          //                      ${userInputValue} 
+            //                ${fromUserValue} `;
+        push(listOfMessagesDb,userInputValue);
 
         clearInputFieldEl();
     }
