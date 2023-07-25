@@ -30,8 +30,7 @@ publishBtn.addEventListener('click', function(){
             from:fromUserValue
         }
         push(listOfMessagesDb,GlobaleMessage);
-
-        clearInputFieldEl();
+        clearInputsFieldEl();
     }
 });
 
@@ -55,23 +54,30 @@ onValue(listOfMessagesDb, function(snapshot){
 function displayItemsIntoDisplayField(result){
 
     let ItemID = result[0];
-    let ItemValueTo = result[1].to;
+    let ItemValueTo = result[1].To;
     let ItemValueFrom = result[1].from;
     let ItemValueMain = result[1].mainMessage;
 
-    let finalMessage = `To: ${<li>ItemValueTo</li>} , ${<br></br>}
-                        ${ItemValueMain} 
-                       from: ${ItemValueFrom}`;
+    let finalMessage =`To: <b>${ItemValueTo}</b><br> 
+                            ${ItemValueMain}<br> 
+                    From: <b>${ItemValueFrom} </b> .`;
+
     let newEl = document.createElement("li");
 
-    newEl.textContent = finalMessage;
+    newEl.innerHTML =  finalMessage;
 
     displayField.append(newEl);
+    let j = displayField.childNodes.length;
+    console.log(j);
+    while (j--)
+        displayField.appendChild(displayField.childNodes[j]);
 }
 
 function messagesListClear(){
     displayField.innerHTML = "";
 }
-function clearInputFieldEl() {
+function clearInputsFieldEl() {
     textInputEl.value = "";
+    toUser.value = "";
+    fromUser.value = "";
 }
