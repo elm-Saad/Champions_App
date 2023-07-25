@@ -32,9 +32,7 @@ img{
     height: 25px;
     font-weight: bold;
 }
-#input-text-field{
-    width: 320px;
-    height: 150px;
+#input-text-field, #input-el-to, #input-el-from{
     padding: 5px 10px;
     box-sizing: border-box;
     border: none;
@@ -44,8 +42,23 @@ img{
     resize: none;
     user-select:all;
 }
-#input-text-field:focus {
+#input-text-field{
+    width: 320px;
+    height: 150px;
+}
+#input-el-to, #input-el-from, #input-text-field:focus {
     outline: none;
+}
+.inputToFrom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#input-el-to,#input-el-from{
+    margin-top: 10px;
+    width: 135px;
+    height: 30px;
 }
 #publish-btn{
     width: 320px;
