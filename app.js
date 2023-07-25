@@ -24,17 +24,18 @@ publishBtn.addEventListener('click', function(){
     //let toUserValue = toUser.value;
     //let fromUserValue = fromUser.value;
 
-    if(userInputValue /*&& toUserValue && fromUserValue*/) {
+    //if(userInputValue /*&& toUserValue && fromUserValue*/) {
         //let GlobaleMessage = `${toUserValue} , 
           //                      ${userInputValue} 
             //                ${fromUserValue} `;
         push(listOfMessagesDb,userInputValue);
 
         clearInputFieldEl();
-    }
-    else{
-        alert('you should field all the inputs in order to share your message to the world');
-    }
+        
+    //}
+   // else{
+       // alert('you should field all the inputs in order to share your message to the world');
+   // }
 });
 
 //get the DB info 
