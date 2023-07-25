@@ -39,7 +39,7 @@ publishBtn.addEventListener('click', function(){
 onValue(listOfMessagesDb, function(snapshot){
     if (snapshot.exists()) {
         let messagesArray = Object.entries(snapshot.val());
-
+        console.log(messagesArray);
         messagesListClear();
 
         for(let i=0; i<messagesArray.length ; i++){
