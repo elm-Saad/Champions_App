@@ -1,9 +1,8 @@
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase,ref, push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const Setting = {
-    databaseLink: "https://championsdb-13555-default-rtdb.europe-west1.firebasedatabase.app/"
+    databaseURL: "https://championsdb-13555-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
 const initialized = initializeApp(Setting);
@@ -25,13 +24,13 @@ publishBtn.addEventListener('click', function(){
     //let fromUserValue = fromUser.value;
 
     //if(userInputValue /*&& toUserValue && fromUserValue*/) {
-        //let GlobaleMessage = `${toUserValue} , 
-          //                      ${userInputValue} 
-            //                ${fromUserValue} `;
-        push(listOfMessagesDb,userInputValue);
+    //let GlobaleMessage = `${toUserValue} , 
+    //                      ${userInputValue} 
+    //                ${fromUserValue} `;
+    push(listOfMessagesDb,userInputValue);
 
-        clearInputFieldEl();
-        
+    clearInputFieldEl();
+
     //}
    // else{
        // alert('you should field all the inputs in order to share your message to the world');
@@ -40,15 +39,19 @@ publishBtn.addEventListener('click', function(){
 
 //get the DB info 
 onValue(listOfMessagesDb, function(snapshot){
+    if (snapshot.exists()) {
+        let messagesArray = Object.entries(snapshot.val());
 
-    let messagesArray = Object.entries(snapshot.val());
+        messagesListClear();
 
-    messagesListClear();
+        for(let i=0; i<messagesArray.length ; i++){
+            let currentItem = messagesArray[i];
 
-    for(let i=0; i<messagesArray.length ; i++){
-        let currentItem = messagesArray[i];
-
-        displayItemsIntoDisplayField(currentItem);
+            displayItemsIntoDisplayField(currentItem);
+        }
+    }
+    else {
+        displayField.innerHTML = "No items here... yet ¯\_(ツ)_/¯ "
     }
 })
 function displayItemsIntoDisplayField(result){
