@@ -76,7 +76,7 @@ ul {
     flex-wrap: wrap;
     gap: 10px;
     overflow-y: auto;
-    height: 190px;
+    max-height: 190px;
 }
 ul::-webkit-scrollbar{
     display: none;
