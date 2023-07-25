@@ -49,7 +49,7 @@ img{
 #input-el-to, #input-el-from, #input-text-field:focus {
     outline: none;
 }
-.inputToFrom{
+.input_names{
     width: 300px;
     display: flex;
     align-items: center;
