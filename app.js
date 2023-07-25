@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase,ref, push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const Setting = {
-    databaseLink: ""
+    databaseLink: "https://championsdb-13555-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
 const initialized = initializeApp(Setting);
@@ -35,10 +35,6 @@ publishBtn.addEventListener('click', function(){
     else{
         alert('you should field all the inputs in order to share your message to the world');
     }
-
-    
-
-    clearInputFieldEl();
 });
 
 //get the DB info 
